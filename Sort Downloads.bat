@@ -1,0 +1,3 @@
+python -u "e:\CODE\PYTHON\playground\python downloads sorter\main.py"
+ECHO Okay cool beans, it's done now...
+PAUSE
