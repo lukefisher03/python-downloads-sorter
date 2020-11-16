@@ -19,15 +19,18 @@ targetFolders = [
 
 class SortType:
     #filetypes is an array containing the 
-    def __init__(self, filetypes, destiniation):
+    def __init__(self, filetypes, destination):
         self.filetypes = filetypes
-        self.destiniation = destiniation
+        self.destination = destination
         self.moveFiles()
     fileArray = []
+    renamedFilesArray = []
+    filesRecognized = False
+    destinationFiles = []
     fileTypeIsSorted = False
     itemsSorted = 0
     def buildArray(self):
-        print("building the files to go to..." + self.destiniation)
+        print("building the files to go to..." + self.destination)
         for file in downloadsList:  
             fileParts = os.path.splitext(downloadsPath+"\\"+file)
             for fileType in self.filetypes:
@@ -36,13 +39,37 @@ class SortType:
                     self.fileArray.append(file)
                     self.itemsSorted+=1
 
+    def renameCopies(self):
+        self.destinationFiles = os.listdir(self.destination)
+        for file in self.fileArray:
+            print(file)
+            for fileInDestinationFolder in self.destinationFiles:
+                if file == fileInDestinationFolder:
+                    self.fileArray.remove(file)
+                    print("the file: " + file + " is already in your destination folder!")
+                    fullFileName = os.path.splitext(downloadsPath+"\\"+file)
+                    fileName = fullFileName[0]
+                    fileName += "(1)"
+                    newFullFileName = fileName + fullFileName[1]
+                    
+                    print("The file was renamed: " + newFullFileName)
+                    os.rename(downloadsPath + "\\" + file, fileName + fullFileName[1])
+                    self.renamedFilesArray.append(fileName+fullFileName[1])
+
     def moveFiles(self):
         self.buildArray()
-        for item in self.fileArray:
-            print(item)
+        self.renameCopies()
+        #for item in self.fileArray:
+            #print(item)
         for file in self.fileArray:
-            shutil.move(downloadsPath+"\\"+file, self.destiniation)
+            fullFileName = downloadsPath + "\\" + file
+            shutil.move(fullFileName, self.destination)
+        for file in self.renamedFilesArray:
+            shutil.move(file, self.destination)
+            #if the filename is == to something already in that folder....
+                #add a (1) to the name and copy it over.
         self.fileArray.clear()
+        self.renamedFilesArray.clear()
         print("DONE \n\n\n\n\n\n")
                 
                 
