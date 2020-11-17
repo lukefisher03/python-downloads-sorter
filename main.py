@@ -7,14 +7,14 @@ downloadsPath = "C:\\Users\\"+user+"\\Downloads"
 downloadsList = os.listdir(downloadsPath)
 
 #where to put the files. You can change these, they just need to exist in your file system. This is just how mine's set up.
-targetFolders = [
-    "C:\\Users\\"+user+"\\Downloads\\EXES", 
-    "C:\\Users\\"+user+"\\Downloads\\OFFICE FILES",
-    "C:\\Users\\"+user+"\\Downloads\\PDF",
-    "C:\\Users\\"+user+"\\Downloads\\IMAGE",
-    "C:\\Users\\"+user+"\\Downloads\\AUDIO AND VIDEO",
-    "C:\\Users\\"+user+"\\Downloads\\ZIP"
-]
+targetFolders = {
+    "exe folder":"C:\\Users\\"+user+"\\Downloads\\EXES", 
+    "office folder": "C:\\Users\\"+user+"\\Downloads\\OFFICE FILES",
+    "pdf folder" :"C:\\Users\\"+user+"\\Downloads\\PDF",
+    "image folder":"C:\\Users\\"+user+"\\Downloads\\IMAGE",
+    "audio and video folder":"C:\\Users\\"+user+"\\Downloads\\AUDIO AND VIDEO",
+    "zip folder":"C:\\Users\\"+user+"\\Downloads\\ZIP"
+}
 
 class SortType:
     #filetypes is an array containing the 
@@ -76,12 +76,12 @@ class SortType:
       
 #add new file types here. They get automatically updated and run because moveFiles() is automatically called in the constructor of the SortType class.
 toSort = {
-    "installer files":SortType([".exe", ".msi"],targetFolders[0]),
-    "pdf files":SortType([".pdf"], targetFolders[2]),
-    "media files": SortType([".mp3", ".mp4",".mov",".wav",".MP4",".m4a"], targetFolders[4]),
-    "microsoft word files":SortType([".docx",".doc",".xls",".xlsx",".pptx",".pptm",".accdb",".one",".xps",".csv"], targetFolders[1]),
-    "images files":SortType([".jpg", ".jpeg",".JPEG",".JPG",".png",".gif",".svg",".NEF",".xmp",".ico"], targetFolders[3]),
-    "zip files":SortType([".zip"], targetFolders[5]),
+    "installer files":SortType([".exe", ".msi"],targetFolders["exe folder"]),
+    "pdf files":SortType([".pdf"], targetFolders["pdf folder"]),
+    "media files": SortType([".mp3", ".mp4",".mov",".wav",".MP4",".m4a"], targetFolders["audio and video folder"]),
+    "microsoft word files":SortType([".docx",".doc",".xls",".xlsx",".pptx",".pptm",".accdb",".one",".xps",".csv"], targetFolders["office folder"]),
+    "images files":SortType([".jpg", ".jpeg",".JPEG",".JPG",".png",".gif",".svg",".NEF",".xmp",".ico"], targetFolders["image folder"]),
+    "zip files":SortType([".zip"], targetFolders["zip folder"]),
 }
 
 #print out a summary of what happened
