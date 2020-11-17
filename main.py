@@ -80,7 +80,7 @@ toSort = {
     "pdf files":SortType([".pdf"], targetFolders["pdf folder"]),
     "media files": SortType([".mp3", ".mp4",".mov",".wav",".MP4",".m4a"], targetFolders["audio and video folder"]),
     "microsoft word files":SortType([".docx",".doc",".xls",".xlsx",".pptx",".pptm",".accdb",".one",".xps",".csv"], targetFolders["office folder"]),
-    "images files":SortType([".jpg", ".jpeg",".JPEG",".JPG",".png",".gif",".svg",".NEF",".xmp",".ico"], targetFolders["image folder"]),
+    "images files":SortType([".jpg", ".jpeg",".JPEG",".JPG",".png",".gif",".svg",".NEF",".xmp",".ico",".jfif"], targetFolders["image folder"]),
     "zip files":SortType([".zip"], targetFolders["zip folder"]),
 }
 
