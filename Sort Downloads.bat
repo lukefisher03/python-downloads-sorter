@@ -1,3 +1,3 @@
-python -u "e:\CODE\PYTHON\playground\python downloads sorter\main.py"
-ECHO Okay cool beans, it's done now...
-PAUSE
+@echo off
+"C:\Users\luked\AppData\Local\Programs\Python\Python310\python.exe" "C:\Users\luked\Documents\CODE\python-downloads-sorter\main.py"
+pause
